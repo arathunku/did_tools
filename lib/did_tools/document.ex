@@ -42,7 +42,11 @@ defmodule DIDTools.Document do
   """
   @spec pds_endpoint(t()) :: String.t() | nil
   def pds_endpoint(doc),
-    do: Map.get(get_service(doc, "atproto_pds", "AtprotoPersonalDataServer") || %{}, "serviceEndpoint")
+    do:
+      Map.get(
+        get_service(doc, "atproto_pds", "AtprotoPersonalDataServer") || %{},
+        "serviceEndpoint"
+      )
 
   @doc """
   Finds serviceEndpoint for labeler service and returns it if it's present.
